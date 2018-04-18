@@ -7,12 +7,12 @@ double funcion(double x);
 double bisection(double xl, double xu, double eps, fptr func);
 
 int main(void){
-  std::cout<< bisection(12,20,1.0e-8,funcion)<<"\n";
+  std::cout<< bisection(0,2,1.0e-8,funcion)<<"\n";
   return 0;
 }
 
 double funcion(double x){
-  return (9.81*68.1/x)*(1-std::exp(-10*x/68.1)) - 40;
+  return x*x-2;
 }
 
 double bisection(double xl, double xu, double eps, fptr func){
@@ -27,5 +27,4 @@ double bisection(double xl, double xu, double eps, fptr func){
   else{
       return bisection(xr,xu,eps, func);
     }
-  return xr;
 }
